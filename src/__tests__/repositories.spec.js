@@ -20,6 +20,8 @@ describe("Repositories", () => {
       techs: ["Node", "Express", "TypeScript"],
       likes: 0
     });
+
+    expect(response.status).toBe(200);
   });
 
   it("should be able to list the repositories", async () => {
@@ -112,6 +114,7 @@ describe("Repositories", () => {
     const repository = repositories.body.find((r) => r.id === response.body.id);
 
     expect(repository).toBe(undefined);
+    
   });
 
   it("should not be able to delete a repository that does not exist", async () => {
